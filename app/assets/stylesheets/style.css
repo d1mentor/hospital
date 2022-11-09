@@ -261,9 +261,24 @@ input[type="text"]:focus-visible, input[type="password"]:focus-visible{
     margin: 10px 0 10px 0;
 }
 
+.submit-button-red {
+    width: 100%;
+    padding: var(--primary-padding);
+    border-radius: var(--pilled-shape-radius);
+    border: none;
+    background: var(--primary-gradient);
+    color: red;
+    margin: 10px 0 10px 0;
+}
+
 .submit-button:hover{
     cursor: pointer;
 }
+
+.submit-button-red:hover{
+    cursor: pointer;
+}
+
 .chekbox-label{
     font-size: 14px;
 }

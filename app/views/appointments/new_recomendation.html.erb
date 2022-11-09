@@ -1,0 +1,27 @@
+<div class="header">
+    <%= render template: "templates/_profile_icon" %>
+    <div class="inner-header" style="margin-top: 0px !important; margin-bottom: 100px;">
+        <h1>Консультация №<%= @appointment.id %></h1>
+        <p class="appointment-form-label">Консультация была назначена на: <%= @appointment.desired_time %></p>
+        <p class="appointment-form-label">Доктор: <%= @appointment.doctor.category.name %> <%= @appointment.doctor.name %></p>
+        <p class="appointment-form-label">Пациент: <%= @appointment.user.name %></p>
+        <div class="large-text-div">
+            <p class="appointment-form-label">Жалоба: <%= @appointment.complaint %></p>
+            <% if @appointment.active %>
+              <%= form_with model: @appointment, url: "create_recomendation" do |f| %>
+                <p class="appointment-form-label">Что вы порекомендуете?</p>
+                <%= f.text_area(:recomendation, size: '50x10', class: "form-text-area") %>
+                <%= f.hidden_field :id, value: @appointment.id %>
+                <%= f.hidden_field :user_id, value: @appointment.user.id %>
+                <%= f.hidden_field :doctor_id, value: current_doctor.id %>
+                <br>
+                <br>
+                <%= f.submit "Отправить", class: "link-button" %>
+              <% end %>
+            <% else %>
+              <p class="appointment-form-label">Заключение специалиста: <%= @appointment.recomendation %></p>
+            <% end %>
+        </div>
+    </div>
+    <%= render template: "templates/_waves" %>
+</div>

@@ -18,7 +18,11 @@
                         <%= doctor.name %>
                     </td>
                     <td>
-                        <%= link_to "Записаться на приём", new_appointment_url(doctor_id: doctor.id), class: "table-link" %>   
+                        <% if Appointment.where(doctor_id: doctor.id, active: true).count < 10 %>
+                          <%= link_to "Записаться на приём", new_appointment_url(doctor_id: doctor.id), class: "table-link" %>   
+                        <% else %>
+                          Доктор сейчас занят
+                        <% end %>  
                     </td>
                 </tr>
             <% end %>
