@@ -17,6 +17,7 @@
                 <th>Статус</th>
             </tr>
             <% @appointments.each do |appointment| %>
+              <% if appointment.doctor %>
                 <tr>
                     <td>
                         <a href="/appointments/<%= appointment.id %>" class="table-link"><%= appointment.desired_time %></a>
@@ -34,6 +35,7 @@
                     </a>   
                     </td>
                 </tr>
+              <% end %>  
             <% end %>
         </table>
 

@@ -15,6 +15,7 @@
                 <th>Статус</th>
             </tr>
             <% @appointments.each do |appointment| %>
+              <% if appointment.user %>
                 <tr>
                     <td>
                         <a href="/appointments/<%= appointment.id %>/new_recomendation" class="table-link"><%= appointment.desired_time %></a>
@@ -32,6 +33,7 @@
                     </a>   
                     </td>
                 </tr>
+              <% end %>
             <% end %>
         </table>
 
