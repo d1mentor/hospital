@@ -12,10 +12,10 @@ class AppointmentDashboard < Administrate::BaseDashboard
     active: Field::Boolean,
     complaint: Field::String,
     desired_time: Field::DateTime,
-    doctor: Field::HasOne,
+    doctor: Field::BelongsTo,
     doctor_id: Field::Number,
     recomendation: Field::String,
-    user: Field::HasOne,
+    user: Field::BelongsTo,
     user_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -57,10 +57,8 @@ class AppointmentDashboard < Administrate::BaseDashboard
     complaint
     desired_time
     doctor
-    doctor_id
-    recomendation
     user
-    user_id
+    recomendation
   ].freeze
 
   # COLLECTION_FILTERS
