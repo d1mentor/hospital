@@ -9,8 +9,23 @@ gem "rails", "~> 7.0.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+# Postgresql DB
+gem 'pg'
+
+# Codestyle
+gem 'rubocop'
+
+# Admin instruments
+gem 'administrate'
+
+# Image assets cloud
+gem 'cloudinary'
+
+# User authorization
+gem 'devise'
+
+# User permissions
+gem 'cancancan'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

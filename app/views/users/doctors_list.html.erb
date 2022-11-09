@@ -1,0 +1,28 @@
+<div class="header">
+    <%= render template: "templates/_profile_icon" %>
+    <div class="inner-header" style="margin-top: 0px !important; margin-bottom: 100px;">
+        <h1>Наши врачи лучшие в своём деле!</h1>
+
+        <table class="doctors-table">
+            <tr>
+                <th>Специализация</th>
+                <th>Фио</th>
+                <th></th>
+            </tr>
+            <% @doctors.each do |doctor| %>
+                <tr>
+                    <td>
+                        <%= doctor.category.name %>
+                    </td>
+                    <td>
+                        <%= doctor.name %>
+                    </td>
+                    <td>
+                        <%= link_to "Записаться на приём", new_appointment_url(doctor_id: doctor.id), class: "table-link" %>   
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+    <%= render template: "templates/_waves" %>
+</div>

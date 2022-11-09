@@ -1,0 +1,19 @@
+<div class="header">
+    <%= render template: "templates/_profile_icon" %>
+    <div class="inner-header" style="margin-top: 0px !important; margin-bottom: 100px;">
+        <h1>Назначте консультацию!</h1>
+        <p class="appointment-form-label">Ваш специалист: <%= @doctor_info %></p>
+        <%= form_with model: @appointment do |f| %>
+          <p class="appointment-form-label">Когда вам будет удобно?</p>
+          <%= f.datetime_select :desired_time, min: Date.today %>
+          <p class="appointment-form-label">На что жалуетесь?</p>
+          <%= f.text_area(:complaint, size: '50x10', class: "form-text-area") %>
+          <br>
+          <br>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :doctor_id, value: params[:doctor_id] %>
+          <%= f.submit "Записаться", class: "link-button" %>
+        <% end %>
+    </div>
+    <%= render template: "templates/_waves" %>  
+</div>

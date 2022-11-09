@@ -1,6 +1,23 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :admin do
+    resources :superusers
+    resources :doctors
+    resources :users
+    resources :appointments
+    resources :categories
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+    root to: 'superusers#index'
+  end
+
+  devise_for :superusers
+  devise_for :doctors
+  devise_for :users
+
+  get 'users/doctors_list'
+  get 'users/profile'
+  get 'cutaway/index'
+
+  resources :appointments
+
+  root 'cutaway#index'
 end

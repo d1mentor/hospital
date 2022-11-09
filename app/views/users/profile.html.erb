@@ -1,0 +1,39 @@
+<div class="header">
+    <%= render template: "templates/_profile_icon" %>
+    <div class="inner-header" style="margin-top: 0px !important; margin-bottom: 100px;">
+        <h1>Личный кабинет</h1>
+        <p class="appointment-form-label">Ваш Email: <%= current_user.email %></p>
+        <p class="appointment-form-label">Имя которое вы указали: <%= current_user.name %></p>
+        
+        <h1>Ваши консультации</h1>
+         <table class="appointments-table">
+            <tr>
+                <th>Дата</th>
+                <th>Доктор</th>
+                <th>Статус</th>
+            </tr>
+            <% @appointments.each do |appointment| %>
+                <tr>
+                    <td>
+                        <a href="/appointments/<%= appointment.id %>" class="table-link"><%= appointment.desired_time %></a>
+                    </td>
+                    <td>
+                        <a href="/appointments/<%= appointment.id %>" class="table-link"><%= appointment.doctor.category.name %> <%= appointment.doctor.name %></a>
+                    </td>
+                    <td>
+                    <a href="/appointments/<%= appointment.id %>" class="table-link">
+                        <% if appointment.active %>
+                          Предстоит
+                        <% else %> 
+                          Состоялась   
+                        <% end %>
+                    </a>   
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+
+       
+    </div>
+    <%= render template: "templates/_waves" %>
+</div>

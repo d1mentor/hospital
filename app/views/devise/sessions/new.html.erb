@@ -1,0 +1,46 @@
+<div class="form-div">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="container">
+        <div class="item-container">
+            <h2 class="log-in">Вход</h2>
+        </div>
+        <% if doctor_path? %>
+          <div class="item-container" style="margin-bottom: 20px;">
+            <label class="label">В учётную запись специалиста</label>
+          </div>
+        <% end %>
+        <form>
+            <div class="form-input">
+                <label for="email" class="label">Email</label>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", type: "text" %>
+            </div>
+            <div class="form-input">
+                <label for="password" class="label">Пароль</label>
+                <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
+            <div class="display-space-between">
+                <div>
+                    <%= f.check_box :remember_me %>
+                    <label for="password" class="chekbox-label">Запомнить вас?</label>
+                </div>
+                <div>
+                    <a href="#">Забыли пароль?</a>
+                </div>
+            </div>
+            <% if !doctor_path? %>
+            <div class="display-space-between">
+              <div>
+                <a href="/doctors/sign_in">Я доктор</a>
+              </div>
+              <div>
+                <a href="/users/sign_up">Регистрация</a>
+              </div>
+            </div>
+            <% end %>
+            <div>
+                <%= f.submit "Войти", type: "submit", class: "submit-button" %>
+            </div>
+        </form>
+    </div>
+<% end %>
+</div>
