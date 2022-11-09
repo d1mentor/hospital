@@ -7,15 +7,6 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_superuser!
-    
-    def authenticate_admin
-      # TODO Add authentication logic here.
-    end
-
-    rescue_from CanCan::AccessDenied do
-      flash[:error] = 'Access denied!'
-      redirect_to root_url
-    end
 
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.

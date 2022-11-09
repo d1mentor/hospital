@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource
 
   def doctors_list
     @doctors = Doctor.all.sort_by { |doc| doc.category.name }

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'doctors/profile'
   namespace :admin do
     resources :superusers
     resources :doctors
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'users/doctors_list'
   get 'users/profile'
+  get 'doctors/profile'
   get 'cutaway/index'
 
   resources :appointments

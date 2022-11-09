@@ -1,5 +1,6 @@
 class Doctor < ApplicationRecord
   devise :database_authenticatable, :recoverable, :rememberable, :session_limitable, :validatable, authentication_keys: [:login]
+  
   validates :phone_number, presence: true, format: { with: /\A(\(\d{3}\)|\d{3})-?\d{3}-?\d{4}\z/ }
 
   has_many :appointments
