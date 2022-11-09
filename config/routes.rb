@@ -22,6 +22,5 @@ Rails.application.routes.draw do
   
   get 'appointments/:id/new_recomendation', to: "appointments#new_recomendation"
   patch 'appointments/:id/create_recomendation', to: "appointments#create_recomendation"
-
   root 'cutaway#index'
 end

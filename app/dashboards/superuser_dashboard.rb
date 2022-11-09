@@ -17,6 +17,7 @@ class SuperuserDashboard < Administrate::BaseDashboard
     reset_password_token: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    password: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,7 +28,6 @@ class SuperuserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     email
-    encrypted_password
     phone_number
   ].freeze
 
@@ -50,11 +50,8 @@ class SuperuserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     email
-    encrypted_password
+    password
     phone_number
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
   ].freeze
 
   # COLLECTION_FILTERS

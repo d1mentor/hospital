@@ -1,5 +1,5 @@
 <div class="form-div">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), ) do |f| %>
     <div class="container">
         <div class="item-container">
             <h2 class="log-in">Вход</h2>
@@ -34,12 +34,28 @@
               <div>
                 <a href="/users/sign_up">Регистрация</a>
               </div>
-               <%= render "devise/shared/error_messages", resource: resource %>
             </div>
             <% end %>
             <div>
-                <%= f.submit "Войти", type: "submit", class: "submit-button", data: { turbolinks: false } %>
+                <%= f.submit "Войти", type: "submit", class: "submit-button" %>
+            </div>
+            <div>
+              <% flash.each do |name, msg| %>
+                <% if msg.class == Array %>
+                  <% msg.each do |message| %>
+                <%= content_tag :div, message, :id => "flash_#{name}" %>
+                <% end %>
+                <% else %>
+                  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+                <% end %>
+              <% end %>
             </div>
     </div>
 <% end %>
 </div>
+
+<script>
+ document.querySelectorAll('form').forEach(function (el) {
+    el.dataset.turbo = false
+  })
+</script>

@@ -1,5 +1,6 @@
 class Superuser < ApplicationRecord
   devise :database_authenticatable, :recoverable, :rememberable, :validatable, authentication_keys: [:login]
+  validates :phone_number, presence: true, format: { with: /\A(\(\d{3}\)|\d{3})-?\d{3}-?\d{4}\z/ }
 
   attr_writer :login
 

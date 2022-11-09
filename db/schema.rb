@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_024059) do
     t.string "name", null: false
     t.string "phone_number", null: false
     t.integer "category_id"
+    t.string "unique_session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_doctors_on_email", unique: true
@@ -67,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_024059) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "phone_number", null: false
+    t.string "unique_session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

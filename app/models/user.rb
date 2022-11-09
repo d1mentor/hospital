@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, authentication_keys: [:login]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :session_limitable, :validatable, authentication_keys: [:login]
   has_many :appointments
+  validates :phone_number, presence: true, format: { with: /\A(\(\d{3}\)|\d{3})-?\d{3}-?\d{4}\z/ }
 
   attr_writer :login
 

@@ -17,6 +17,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :name, null: false
       t.string :phone_number, null: false, uniqueness: true
 
+      t.string :unique_session_id
+
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
