@@ -1,3 +1,4 @@
 class CutawayController < ApplicationController
-  def index; end
+  def index
+  end
 end

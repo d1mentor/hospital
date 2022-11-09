@@ -4,7 +4,7 @@ class DeviseCreateSuperusers < ActiveRecord::Migration[7.0]
   def change
     create_table :superusers do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email,              null: false, default: "", uniqueness: true
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -14,7 +14,7 @@ class DeviseCreateSuperusers < ActiveRecord::Migration[7.0]
       ## Rememberable
       t.datetime :remember_created_at
 
-      t.string :phone_number, null: false
+      t.string :phone_number, null: false, uniqueness: true
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

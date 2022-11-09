@@ -12,6 +12,7 @@ class UserDashboard < Administrate::BaseDashboard
     appointments: Field::HasMany,
     email: Field::String,
     encrypted_password: Field::String,
+    password: Field::String,
     name: Field::String,
     phone_number: Field::String,
     remember_created_at: Field::DateTime,
@@ -30,7 +31,6 @@ class UserDashboard < Administrate::BaseDashboard
     id
     appointments
     email
-    encrypted_password
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -42,9 +42,6 @@ class UserDashboard < Administrate::BaseDashboard
     encrypted_password
     name
     phone_number
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
     created_at
     updated_at
   ].freeze
@@ -53,14 +50,10 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    appointments
     email
-    encrypted_password
+    password
     name
     phone_number
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
   ].freeze
 
   # COLLECTION_FILTERS

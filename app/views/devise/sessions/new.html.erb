@@ -9,10 +9,9 @@
             <label class="label">В учётную запись специалиста</label>
           </div>
         <% end %>
-        <form>
             <div class="form-input">
-                <label for="email" class="label">Email</label>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", type: "text" %>
+                <label for="email" class="label">Email or Phone number</label>
+                <%= f.email_field :login, autofocus: true, autocomplete: "email", type: "text" %>
             </div>
             <div class="form-input">
                 <label for="password" class="label">Пароль</label>
@@ -35,12 +34,12 @@
               <div>
                 <a href="/users/sign_up">Регистрация</a>
               </div>
+               <%= render "devise/shared/error_messages", resource: resource %>
             </div>
             <% end %>
             <div>
-                <%= f.submit "Войти", type: "submit", class: "submit-button" %>
+                <%= f.submit "Войти", type: "submit", class: "submit-button", data: { turbolinks: false } %>
             </div>
-        </form>
     </div>
 <% end %>
 </div>

@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email,              null: false, default: "", uniqueness: true
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -15,7 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.datetime :remember_created_at
 
       t.string :name, null: false
-      t.string :phone_number, null: false
+      t.string :phone_number, null: false, uniqueness: true
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

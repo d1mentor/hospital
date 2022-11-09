@@ -1,5 +1,10 @@
 <div class="header">
     <%= render template: "templates/_profile_icon" %>
+    <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
     <div class="inner-header">
         <h1>Что-то болит? Мы позаботимся о вас!</h1>
         <a href="/users/doctors_list" class="link-button">Записаться на приём</a>

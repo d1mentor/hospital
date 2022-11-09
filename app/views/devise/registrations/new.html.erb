@@ -4,7 +4,6 @@
         <div class="item-container">
             <h2 class="log-in">Регистрация</h2>
         </div>
-        <form>
             <div class="form-input">
                 <label for="email" class="label">Email</label>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", type: "text" %>
@@ -29,14 +28,10 @@
                 <div>
                     <a href="/users/sign_in">Войти</a>
                 </div>
-                <div>
-                    <a href="#">Забыли пароль?</a>
-                </div>
             </div>
             <div>
                 <%= f.submit "Зарегистрироваться", type: "submit", class: "submit-button" %>
             </div>
-        </form>
     </div>
 <% end %>
 </div>
